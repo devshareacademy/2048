@@ -6,19 +6,19 @@ A NPM package that contains the core game logic for the game 2048.
 
 ```bash
 # npm
-npm install -E @devshareacademy/2048
+npm install -E @devshareacademy/js-2048
 
 # yarn
-yarn add -E @devshareacademy/2048
+yarn add -E @devshareacademy/js-2048
 
 # pnpm
-pnpm add -E @devshareacademy/2048
+pnpm add -E @devshareacademy/js-2048
 ```
 
 ## Usage
 
 ```typescript
-import { Game2048 } from '@devshareacademy/2048';
+import { Game2048 } from '@devshareacademy/js-2048';
 
 const game = new Game2048();
 
@@ -64,7 +64,7 @@ The `Game2048` class allows for you to configure the following settings for your
 Example:
 
 ```typescript
-import { Game2048 } from '@devshareacademy/connect-four';
+import { Game2048 } from '@devshareacademy/js-2048';
 
 const game = new Game2048({ cols: 2, rows: 2, numberToReachToWin: 8 });
 
@@ -112,7 +112,7 @@ Allows the player to reset the game, and start a brand new game.
 ### Simple Game
 
 ```typescript
-import { Game2048 } from '@devshareacademy/connect-four';
+import { Game2048 } from '@devshareacademy/js-2048';
 
 const game = new Game2048();
 game.makeMove('DOWN');
@@ -186,7 +186,7 @@ npm link
 # change to the directory of the project you want to use this package in
 cd ../../../some-other-project
 # link-install the package
-npm link @devshareacademy/2048
+npm link @devshareacademy/js-2048
 ```
 
 Please see the official documentation on [npm link](https://docs.npmjs.com/cli/v8/commands/npm-link) for more information.
@@ -220,7 +220,7 @@ npm publish --registry http://localhost:4873
 To install the local package in another project:
 
 ```bash
-NPM_CONFIG_REGISTRY=http://localhost:4873 npm install @devshareacademy/connect-four
+NPM_CONFIG_REGISTRY=http://localhost:4873 npm install @devshareacademy/js-2048
 ```
 
 ## Project Structure
