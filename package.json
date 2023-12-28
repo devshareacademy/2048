@@ -1,6 +1,6 @@
 {
 	"name": "@devshareacademy/js-2048",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"description": "A NPM package that contains the core game logic for the game 2048.",
 	"files": [
 		"dist"
