@@ -1,6 +1,6 @@
 import { Tile } from './tile';
-import { Coordinate, DIRECTION, Direction, GAME_ERROR } from './types';
-import { randomNumber } from './utils';
+import { Coordinate, DIRECTION, Direction, GAME_ERROR, GameConfig } from './types';
+import { checkGameConfig, randomNumber } from './utils';
 
 export default class Game2048 {
   #numberOfRows: number;
@@ -11,7 +11,9 @@ export default class Game2048 {
   #isGameOver: boolean;
   #didPlayerWin: boolean;
 
-  constructor(config?: { rows?: number; cols?: number; numberToReachToWin?: number }) {
+  constructor(config?: GameConfig) {
+    checkGameConfig(config);
+
     this.#grid = [];
     this.#score = 0;
     this.#isGameOver = false;

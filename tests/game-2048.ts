@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+/* eslint-disable @typescript-eslint/no-unsafe-argument */
+
 import * as uvu from 'uvu';
 import * as assert from 'uvu/assert';
 import seedrandom from 'seedrandom';
@@ -211,7 +214,7 @@ function setupPlaceGamePieceTests(): void {
     assert.equal(game.score, 16);
   });
 
-  gamePlayersInputSuite.only('should move all tiles to the up when the player presses the up button', () => {
+  gamePlayersInputSuite('should move all tiles to the up when the player presses the up button', () => {
     game.makeMove(DIRECTION.DOWN);
     game.makeMove(DIRECTION.DOWN);
     game.makeMove(DIRECTION.DOWN);
@@ -232,7 +235,7 @@ function setupPlaceGamePieceTests(): void {
     assert.equal(game.score, 16);
   });
 
-  gamePlayersInputSuite.only('should move all tiles to the up when the player presses the up button again', () => {
+  gamePlayersInputSuite('should move all tiles to the up when the player presses the up button again', () => {
     game.makeMove(DIRECTION.DOWN);
     game.makeMove(DIRECTION.DOWN);
     game.makeMove(DIRECTION.DOWN);
@@ -254,7 +257,7 @@ function setupPlaceGamePieceTests(): void {
     assert.equal(game.score, 16);
   });
 
-  gamePlayersInputSuite.only('should move all tiles to the left when the player presses the left button', () => {
+  gamePlayersInputSuite('should move all tiles to the left when the player presses the left button', () => {
     game.makeMove(DIRECTION.DOWN);
     game.makeMove(DIRECTION.DOWN);
     game.makeMove(DIRECTION.DOWN);
@@ -277,7 +280,7 @@ function setupPlaceGamePieceTests(): void {
     assert.equal(game.score, 16);
   });
 
-  gamePlayersInputSuite.only('should move all tiles to the left when the player presses the left button again', () => {
+  gamePlayersInputSuite('should move all tiles to the left when the player presses the left button again', () => {
     game.makeMove(DIRECTION.DOWN);
     game.makeMove(DIRECTION.DOWN);
     game.makeMove(DIRECTION.DOWN);
@@ -301,7 +304,7 @@ function setupPlaceGamePieceTests(): void {
     assert.equal(game.score, 16);
   });
 
-  gamePlayersInputSuite.only('should update tile positions based on button input 1', () => {
+  gamePlayersInputSuite('should update tile positions based on button input 1', () => {
     game.makeMove(DIRECTION.DOWN);
     game.makeMove(DIRECTION.DOWN);
     game.makeMove(DIRECTION.DOWN);
@@ -326,7 +329,7 @@ function setupPlaceGamePieceTests(): void {
     assert.equal(game.score, 16);
   });
 
-  gamePlayersInputSuite.only('should update tile positions based on button input 2', () => {
+  gamePlayersInputSuite('should update tile positions based on button input 2', () => {
     game.makeMove(DIRECTION.DOWN);
     game.makeMove(DIRECTION.DOWN);
     game.makeMove(DIRECTION.DOWN);
@@ -465,6 +468,58 @@ function setupGameOverTests(): void {
   gameGameOverSuite.run();
 }
 
+/* 2048 - Invalid Config Tests */
+function setupInvalidConfigTests(): void {
+  const testSuite = uvu.suite('2048 - Game Over');
+
+  testSuite('should throw an error if invalid config type is provided', () => {
+    assert.throws(() => new Game2048([] as any), /must be an object/);
+  });
+
+  testSuite('should throw an error if invalid config type is provided 2', () => {
+    assert.throws(() => new Game2048('1' as any), /must be an object/);
+  });
+
+  testSuite('should throw an error if invalid config.cols type is provided', () => {
+    assert.throws(() => new Game2048({ cols: 't' as any }), /must be a number/);
+  });
+
+  testSuite('should throw an error if invalid config.rows type is provided', () => {
+    assert.throws(() => new Game2048({ cols: 't' as any }), /must be a number/);
+  });
+
+  testSuite('should throw an error if invalid config.cols value is provided', () => {
+    assert.throws(() => new Game2048({ cols: 1 }), /must be a number/);
+  });
+
+  testSuite('should throw an error if invalid config.rows value is provided', () => {
+    assert.throws(() => new Game2048({ rows: 1 }), /must be a number/);
+  });
+
+  testSuite('should throw an error if config.cols value is above the max value', () => {
+    assert.throws(() => new Game2048({ cols: 11 }), /must be a number/);
+  });
+
+  testSuite('should throw an error if config.rows value is above the max value', () => {
+    assert.throws(() => new Game2048({ rows: 11 }), /must be a number/);
+  });
+
+  testSuite('should throw an error if invalid config.numberToReachToWin type is provided', () => {
+    assert.throws(() => new Game2048({ numberToReachToWin: 't' as any }), /must be a number/);
+  });
+
+  testSuite('should throw an error if invalid config.numberToReachToWin value is provided', () => {
+    assert.throws(() => new Game2048({ numberToReachToWin: 1 }), /must be a number/);
+  });
+
+  testSuite('should throw an error if config.numberToReachToWin value is not a power of 2', () => {
+    assert.throws(() => new Game2048({ numberToReachToWin: 10 }), /must be a number/);
+  });
+
+  testSuite.run();
+}
+
 setupInitializationTests();
 setupPlaceGamePieceTests();
 setupGameOverTests();
+setupInvalidConfigTests();

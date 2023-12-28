@@ -57,9 +57,9 @@ The `Game2048` class allows for you to configure the following settings for your
 
 | Name | Type | Default Value | Description |
 |---|---|---|
-| rows | number | 4 | The number of rows that will be created for the board. The number of rows must be at least `2`. |
-| cols | number | 4 | The number of cols that will be created for the board. The number of rows must be at least `2`. |
-| numberToReachToWin | number | 2048 | The max tile number that must be reached for the player to win the game. The number must be a power of `2`. |
+| rows | number | 4 | The number of rows that will be created for the board. Valid values are `2 - 10`. |
+| cols | number | 4 | The number of cols that will be created for the board. Valid values are `2 - 10`. |
+| numberToReachToWin | number | 2048 | The max tile number that must be reached for the player to win the game. The number must be a power of `2` and must be at least `4`. |
 
 Example:
 
