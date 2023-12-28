@@ -120,8 +120,8 @@ game.makeMove('DOWN');
 
 console.log(game.isGameOver); // false
 console.log(game.didPlayerWin); // false
-console.log(connectFour.score); // 4
-console.log(connectFour.board);
+console.log(game.score); // 4
+console.log(game.board);
 /*
 [
   [0, 0, 0, 0],
@@ -233,7 +233,7 @@ In the project folder, there is a variety of files and folders. At a high level,
 ├── config           this folder contains configuration files for ESLint and TSC (the TypeScript Compiler)
 ├── dist             a dynamically generated folder which will contain the compiled source code of the finished library (generated when you run the build script)
 ├── node_modules     a dynamically generated folder which contains the project developer dependencies when working on the library (generated when you run the install script)
-├── src              this folder will contain the core code for our library (currently contains a placeholder Class for the Connect Four library)
+├── src              this folder will contain the core code for our library (currently contains a placeholder Class for the 2048 library)
 ├── tests            this folder will contain the custom tests for our library
 ├── .gitignore       this file is used for telling git to ignore certain files in our project (mainly used for our project dependencies and dynamically generated files)
 ├── package.json     a configuration file for npm that contains metadata about your project
