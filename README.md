@@ -77,6 +77,8 @@ const game = new Game2048({ cols: 2, rows: 2, numberToReachToWin: 8 });
 */
 ```
 
+When creating a new instance of the `Game2048` class, an error will be thrown if an invalid configuration is not provided.
+
 ### Methods
 
 #### .makeMove(direction)
@@ -91,7 +93,6 @@ Allows the player to slide all tiles in the provided direction on the game board
 | Name | Type | Description |
 |---|---|---|
 | direction | string | The direction the tiles should be moved on the game board. Valid values are `UP, DOWN, LEFT, RIGHT` |
-
 
 #### .resetGame()
 
