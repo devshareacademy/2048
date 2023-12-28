@@ -8,7 +8,7 @@ on:
 
 jobs:
   npm-publish:
-    uses: devshareacademy/shared-workflows/.github/workflows/publish-package.yml@v1.0.3
+    uses: devshareacademy/shared-workflows/.github/workflows/pnpm-publish-package.yml@v1.0.4
     secrets:
       npm_token: ${{ secrets.NPM_TOKEN }}
       gh_token: ${{ secrets.GH_TOKEN }}
